@@ -11,13 +11,15 @@ const SearchByDate = ({onSubmit}) => {
   function submit(e) {
     if (e.key === "Enter" && e.target.value.trim() !== "") {
       let v_date = e.target.value;
+          v_date = v_date.replace("/","-");
       let v_arr  = v_date.split("-");
       let valido = false;
 
       if(v_arr.length==3){        
-        let anio = (v_arr[0]);
-        let mes  = parseInt(v_arr[1]);
-        let dia  = parseInt(v_arr[2]);         
+        let anio = v_arr[0];
+        let mes  = v_arr[1];
+        let dia  = v_arr[2];   
+
         valido   = (anio.length == 4)? true : false;
         anio     = parseInt(anio);
 
@@ -36,7 +38,6 @@ const SearchByDate = ({onSubmit}) => {
         else{
           valido = false;
         }
-        console.log("valido=>"+valido);
       }
       
       if(!valido){
@@ -54,10 +55,11 @@ const SearchByDate = ({onSubmit}) => {
   return (
     <>       
     <input
-        onKeyUp={submit}        
-        type="text"
-        placeholder={"yyyy-mm-dd"}              
-      />
+      onKeyUp={submit}        
+      type="text"
+      placeholder={"yyyy-mm-dd"}              
+    />
+    
     <div className={s.msj}>{msj}</div>
     </>
   );

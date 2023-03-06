@@ -1,19 +1,15 @@
 
-import s from "./style.module.css";
+import {InfoTitle,InfoDescription,InfoCopyright,InfoDate} from "./styled-info.jsx";
 
-const PictureInfo = ({ picture }) => {
- 
-  return (
-    <div>
-      <div className={s.title}>{picture.title}</div>            
-      <div className={s.date}>{picture.date}</div>
-      <div className={s.description}>{picture.explanation}</div>
+const PictureInfo = ({ picture }) => (
+  <div>
+      <InfoTitle>{picture.title}</InfoTitle>
+      <InfoDate>{picture.date}</InfoDate>
+      <InfoDescription>{picture.explanation}</InfoDescription>
       {
       picture.copyright &&
-      <span className={s.copyright}>copyright: {picture.copyright}</span>      
+      <InfoCopyright>Copyright: {picture.copyright}</InfoCopyright>
       }
     </div>
-  );
-};
-
+);
 export default PictureInfo;
