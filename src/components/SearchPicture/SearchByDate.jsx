@@ -15,13 +15,28 @@ const SearchByDate = ({onSubmit}) => {
       let valido = false;
 
       if(v_arr.length==3){        
-        let anio = parseInt(v_arr[0]);
+        let anio = (v_arr[0]);
         let mes  = parseInt(v_arr[1]);
-        let dia  = parseInt(v_arr[2]); 
+        let dia  = parseInt(v_arr[2]);         
+        valido   = (anio.length == 4)? true : false;
+        anio     = parseInt(anio);
 
-        valido = (anio.length == 4)? true : false;
-        valido = (mes.length == 1 || mes.length == 2 && (mes > 0 && mes < 12))? true : false;
-        valido = (dia.length == 1 || dia.length == 2 && (dia > 0 && dia < 32))? true : false;
+        if(mes.length == 1 || mes.length == 2 && valido) {
+          mes    = parseInt(mes);
+          valido = (mes > 0 && mes < 13)? true : false;
+        }
+        else{
+          valido = false;
+        }
+        
+        if(dia.length == 1 || dia.length == 2 && valido){          
+          dia    = parseInt(dia);
+          valido = (dia > 0 && dia < 32)? true : false;
+        }
+        else{
+          valido = false;
+        }
+        console.log("valido=>"+valido);
       }
       
       if(!valido){
