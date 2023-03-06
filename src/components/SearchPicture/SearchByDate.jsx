@@ -14,8 +14,7 @@ const SearchByDate = ({onSubmit}) => {
       let v_arr  = v_date.split("-");
       let valido = false;
 
-      if(v_arr.length==3){
-        alert(v_arr[1])
+      if(v_arr.length==3){        
         let anio = parseInt(v_arr[0]);
         let mes  = parseInt(v_arr[1]);
         let dia  = parseInt(v_arr[2]); 
@@ -37,6 +36,11 @@ const SearchByDate = ({onSubmit}) => {
     }
   }  
 
+/*
+  useEffect(() => {      
+    submit1(); 
+  }, []);
+*/
   return (
     <>       
     <input
@@ -48,5 +52,31 @@ const SearchByDate = ({onSubmit}) => {
     </>
   );
 };
+/*
+<DateTimePicker className={s.date}
+      onChange={submit} 
+      value={value} 
+      format={"dd-mm-yyyy"}
+      maxDate={new Date()}
+      disableClock={true}
+      />
+      <CalendarIcon className={s.icon} />
+*/
+/*
+<input
+        onChange={submit}
+        className={s.input}
+        type="text"
+        placeholder={"dd/mm/yyyy"}      
+        value={value}             
+      />
+*/
+/*
+      <DateTimePicker 
+      onChange={onChange} 
+      value={value} 
+      dateFormat="dd-mm-yyyy"
+      />
+      */
 
 export default SearchByDate;
