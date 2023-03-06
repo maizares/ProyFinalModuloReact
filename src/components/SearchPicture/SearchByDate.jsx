@@ -5,7 +5,7 @@ import s from "./style.module.css";
 
 
 const SearchByDate = ({onSubmit}) => {
-  //const [value, submit] = useState(new Date()); 
+  
   const [msj, setMsj] = useState("Presione enter para buscar"); 
 
   function submit(e) {
@@ -36,11 +36,6 @@ const SearchByDate = ({onSubmit}) => {
     }
   }  
 
-/*
-  useEffect(() => {      
-    submit1(); 
-  }, []);
-*/
   return (
     <>       
     <input
@@ -52,31 +47,6 @@ const SearchByDate = ({onSubmit}) => {
     </>
   );
 };
-/*
-<DateTimePicker className={s.date}
-      onChange={submit} 
-      value={value} 
-      format={"dd-mm-yyyy"}
-      maxDate={new Date()}
-      disableClock={true}
-      />
-      <CalendarIcon className={s.icon} />
-*/
-/*
-<input
-        onChange={submit}
-        className={s.input}
-        type="text"
-        placeholder={"dd/mm/yyyy"}      
-        value={value}             
-      />
-*/
-/*
-      <DateTimePicker 
-      onChange={onChange} 
-      value={value} 
-      dateFormat="dd-mm-yyyy"
-      />
-      */
+
 
 export default SearchByDate;
