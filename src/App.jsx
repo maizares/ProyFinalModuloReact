@@ -28,7 +28,7 @@ function App() {
     lastPictures(date); 
   }
 
-const lastPictures = useCallback(async () => {
+const lastPictures = useCallback(async (date) => {
   const result = await PictureAPI.lastPictures(date);
     setLastPictures(result);
 },[lastFivePictures]);
@@ -44,8 +44,6 @@ const lastPictures = useCallback(async () => {
   useEffect(() => {    
     lastPictures(dateStart);    
   }, []);
-
-  //console.log(currentPicture);
 
   return (
     <div
